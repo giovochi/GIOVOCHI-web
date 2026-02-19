@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giovochi | Giovochi Consultings LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <h1>Giovochi</h1>
+    <p>Powered by Giovochi Consultings LLC</p>
+  </div>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Luxury Custom Apparel & Business Consulting</h2>
+  <p>Build Your Brand. Wear Your Vision.</p>
+</section>
+
+<section id="shop">
+  <h2>Shop Giovochi Apparel</h2>
+  <div id="product-list" class="product-grid"></div>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service-box">
+      <h3>Custom Apparel Printing</h3>
+      <p>Premium heat press & DTF apparel production.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Brand Development</h3>
+      <p>Logo creation, brand strategy, and identity building.</p>
+    </div>
+
+    <div class="service-box">
+      <h3>Startup Consulting</h3>
+      <p>LLC setup guidance, funding preparation, and business structuring.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Giovochi</h2>
+  <p>
+    Giovochi is a creative business brand powered by Giovochi Consultings LLC.
+    Founded by Jeremy Jefferson, the mission is to empower entrepreneurs
+    through premium apparel and strategic consulting services.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact Giovochi</h2>
+  <p>Email: your@email.com</p>
+  <p>Phone: (336) XXX-XXXX</p>
+</section>
+
+<footer>
+  <p>© 2026 Giovochi | Giovochi Consultings LLC. All Rights Reserved.</p>
+</footer>
+
+<script>
+fetch('products.json')
+.then(response => response.json())
+.then(products => {
+  const container = document.getElementById('product-list');
+  products.forEach(product => {
+    container.innerHTML += `
+      <div class="product">
+        <h3>${product.name}</h3>
+        <p class="price">$${product.price}</p>
+        <p>${product.description}</p>
+      </div>
+    `;
+  });
+});
+</script>
+
+</body>
+</html>
